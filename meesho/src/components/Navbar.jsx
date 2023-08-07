@@ -37,10 +37,11 @@ const Navbar = () => {
                         <p>Become a Supplier</p>
                     </div>
                     <div className='Toplef-th'>
+                    {userData?.name &&
                         <div onClick={ ()=> router('/profile')}>
                             <i class="fa-regular fa-user"></i>
-                            <p>Profile</p>
-                        </div>
+                            <p>{userData.name}</p>
+                        </div>}
                         {userData?.role == "Seller" && <div onClick={ ()=> router('/add-product')}>Add</div>}
                         { userData?.role == "Buyer" &&
                         <div onClick={ ()=> router('/cart')}>

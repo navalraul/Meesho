@@ -1,6 +1,8 @@
 
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import './Cart.css'
+
 
 const Cart = () => {
 
@@ -55,29 +57,29 @@ const Cart = () => {
 
 
     return (
-        <div>
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <h1>Cart</h1>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', border: "1px solid black", width: "60%" }}>
-                    {userCart && userCart.map((pro, index) => (
-                        <div style={{ width: '20%', height: '400px', border: '2px solid black', padding: '30px' }}>
-                            <img style={{ width: '100%', height: '200px' }} src={pro.image} />
-                            <h3>Title: {pro.title}</h3>
-                            <h4>Price: {pro.price}</h4>
-                        </div>
-                    ))}
-                </div>
-                <div style={{ width: "30%", border: "1px solid black" }}>
-                    <h1>Total</h1>
-                    <p>Total MRP : {finalPrice + finalPrice}$</p>
-                    <p>Total price after 50% dicount : {finalPrice}$ </p>
-
-                    <button onClick={buyProducts} style={{ width: "30%", backgroundColor: "green", height: "40px", color: "white" }}>Buy Products</button>
-                </div>
-            </div>
+      <div id='Cmain'>
+      <div className='Chead'>
+        <h1>Cart</h1>
+      </div>
+      <div className='Csub'>
+        <div className='Csub-main'>
+          {userCart && userCart.map((pro, index) => (
+              <div className='Cmain-right' >
+                <img src={pro.image} />
+                <h3>Title: {pro.name}</h3>
+                <h4>Price: {pro.price}</h4>
+              </div>
+        ))}
         </div>
+        <div className='Cmain-left'>
+          <h1>Total</h1>
+          <p>Total MRP : {finalPrice+finalPrice}</p>
+          <p>Total price after 50% dicount : {finalPrice}$ </p>
+
+          <button onClick={buyProducts} style={{ width: "30%", backgroundColor: "green", height: "40px", color: "white"}}>Buy Products</button>
+        </div>
+      </div>
+    </div>
     )
 }
 
