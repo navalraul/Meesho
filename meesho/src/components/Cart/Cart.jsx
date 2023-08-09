@@ -6,7 +6,7 @@ import './Cart.css'
 
 const Cart = () => {
 
-    const [finalPrice, setFinalPrice] = useState(0);
+  const [finalPrice, setFinalPrice] = useState(0);
   const [userCart, setUserCart] = useState([]);
   const router = useNavigate();
 
@@ -56,31 +56,31 @@ const Cart = () => {
 
 
 
-    return (
-      <div id='Cmain'>
+  return (
+    <div id='Cmain'>
       <div className='Chead'>
         <h1>Cart</h1>
       </div>
       <div className='Csub'>
         <div className='Csub-main'>
           {userCart && userCart.map((pro, index) => (
-              <div className='Cmain-right' >
-                <img src={pro.image} />
-                <h3>Title: {pro.name}</h3>
-                <h4>Price: {pro.price}</h4>
-              </div>
-        ))}
+            <div className='Cmain-right' >
+              <img src={pro.image} />
+              <h3>Title: {pro.name}</h3>
+              <h4>Price: {pro.price}</h4>
+            </div>
+          ))}
         </div>
         <div className='Cmain-left'>
           <h1>Total</h1>
-          <p>Total MRP : {finalPrice+finalPrice}</p>
+          <p>Total MRP : {finalPrice + finalPrice}</p>
           <p>Total price after 50% dicount : {finalPrice}$ </p>
 
-          <button onClick={buyProducts} style={{ width: "30%", backgroundColor: "green", height: "40px", color: "white"}}>Buy Products</button>
+          <button onClick={buyProducts} style={{ width: "30%", backgroundColor: "green", height: "40px", color: "white" }}>Buy Products</button>
         </div>
       </div>
     </div>
-    )
+  )
 }
 
 export default Cart
